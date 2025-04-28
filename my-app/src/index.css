@@ -3,6 +3,15 @@
 @theme{
     --color-background-dark: #070113;
     --color-background: #fefefe;
+    --color-accent: #6CB0BA;
+}
+
+body {
+    background-color: var(--color-background-dark);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 
