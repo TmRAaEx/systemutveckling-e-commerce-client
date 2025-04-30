@@ -4,6 +4,7 @@
     --color-background-dark: #070113;
     --color-background: #E7E7E7;
     --color-accent: #6CB0BA;
+    --breakpoint-3xl: 125rem;
 }
 
 body {

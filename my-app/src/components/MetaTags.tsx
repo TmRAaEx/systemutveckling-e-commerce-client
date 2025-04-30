@@ -9,6 +9,7 @@ interface MetaTagProps {
 export default function MetaTags(props: MetaTagProps) {
     return (
         <Helmet>
+            {/*Probably only works as expected after building*/}
             <title>{props.title ? props.title : "Home"} | Boat store</title>
             <meta name="description" content={props.description}/>
             <link rel="canonical" href={props.canonicalUrl}/>

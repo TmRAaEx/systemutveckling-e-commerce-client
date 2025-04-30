@@ -2,6 +2,7 @@ import {AddToCartButton} from "@components/UI/styled/Buttons.tsx";
 import {Link} from "react-router";
 import IProduct from "@interfaces/IProduct.ts";
 import Text from "@components/UI/styled/Text.tsx";
+import Price from "@components/UI/functional/PriceFormatter.tsx";
 
 export default function ProductCard({product}: { product: IProduct }) {
     {/*Modified version of https://componentland.com/component/product-card-2*/
@@ -32,7 +33,7 @@ export default function ProductCard({product}: { product: IProduct }) {
                         <Text className={"text-sm px-1"}
                               color={"text-gray-600 dark:text-gray-200"}>{product.category.name}</Text>
                         <Text className={"text-lg text-bold"}
-                              color={"text-black dark:text-white"}>{product.price}kr</Text>
+                              color={"text-black dark:text-white"}>{Price(product)}</Text>
 
                     </div>
                 </div>
