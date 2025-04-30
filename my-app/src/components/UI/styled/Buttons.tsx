@@ -60,7 +60,7 @@ export function AddToCartButton() {
         <button
             className="flex items-center w-full justify-center rounded-md
                        bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white
-                       hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                       hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
             <CartIcon/>
             Add to cart

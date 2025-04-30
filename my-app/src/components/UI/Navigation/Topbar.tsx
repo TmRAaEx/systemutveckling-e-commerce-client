@@ -15,7 +15,7 @@ export default function Topbar() {
         <header className={"flex flex-col w-full items-center"}>
             {location.pathname == "/" ? <Hero/> :
                 <>
-                    <div className="flex flex-row w-full h-16 items-center space-x-4 bg-white dark:bg-background-dark">
+                    <div className="flex flex-row w-full h-16 md:h-20 items-center space-x-4 bg-white dark:bg-background-dark px-2 md:px-5">
                         <Link to={"/"}>
                             <img src="/logo-icon-big.png" width="48" height="48" alt="Logo icon"/>
                         </Link>
@@ -40,15 +40,15 @@ export default function Topbar() {
 
 
                     <nav className="flex flex-row items-center w-full justify-around bg-accent
-                 py-2 h-8 w-full ">
+                 py-2 h-8 md:h-10 w-full ">
                         <Link to="/store" className="text-white ">
-                            <Text className={"text-md font-bold"} color={"text-white "}>Store</Text>
+                            <Text className={"text-md lg:text-xl  font-bold"} color={"text-white "}>Store</Text>
                         </Link>
                         <Link to="/boats" className="text-white ">
-                            <Text className={"text-md font-bold"} color={"text-white "}> Boats</Text>
+                            <Text className={"text-md  lg:text-xl font-bold"} color={"text-white "}> Boats</Text>
                         </Link>
                         <Link to="/partners" className="text-white ">
-                            <Text className={"text-md font-bold"} color={"text-white "}>Partners</Text>
+                            <Text className={"text-md  lg:text-xl font-bold"} color={"text-white "}>Partners</Text>
                         </Link>
                     </nav>
                 </>
