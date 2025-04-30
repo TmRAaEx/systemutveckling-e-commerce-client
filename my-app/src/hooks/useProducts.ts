@@ -39,14 +39,14 @@ export default function useProducts() {
             const productExist = products.find(i => i._id === id)
             if (productExist) return productExist
             setLoading(true)
-            const product = await apiClient.get(`/products/${id}`);
+            const product = await apiClient.get<IProduct>(`/products/${id}`);
             if (!product) {
-                return Promise.reject(new Error("Product not found"));
+                throw new Error("Product not found");
             }
             return product
 
         } catch (error) {
-            setError("Error fetching products");
+            setError("Error fetching product");
         } finally {
             setLoading(false)
         }
