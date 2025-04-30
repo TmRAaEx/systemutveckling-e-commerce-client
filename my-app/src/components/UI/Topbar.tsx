@@ -1,37 +1,58 @@
-import {Link} from "react-router";
+import Hero from "@components/UI/Hero.tsx";
+import {Link, useLocation} from "react-router";
 import Text from "@components/UI/Text.tsx";
+import {useState} from "react";
 
 export default function Topbar() {
-    return (<>
-        <header className={"flex flex-row w-full items-center"}>
-            <section className="relative w-full">
+    const location = useLocation();
+    const [search, setSearch] = useState<string>("");
 
-                <Text className={"text-lg font-bold  absolute left-1/2 transform -translate-x-1/2 top-8 w-85 "}>
-                    "The leading choice for custom boats,
-                    premium boating supplies
-                    and adventure"
-                    — boating enthusiasts
-                </Text>
-                <img
-                    src="/hero.png"
-                    alt="Hero image of a boat on water"
-                    className="h-80 w-full object-cover"
-                />
-                <div className="absolute bottom-0 left-0 w-full">
-                    <nav className="flex flex-row items-center justify-around bg-accent/90 py-2 h-13 ">
-                        <Link to="products" className="text-white ">
-                            <Text className={"text-xl font-bold"}>Supplies</Text>
+    const handleSearch = () => {
+        console.log(search);
+        setSearch("")
+    }
+    return (<>
+        <header className={"flex flex-col w-full items-center"}>
+            {location.pathname == "/" ? <Hero/> :
+                <>
+                    <div className="flex flex-row w-full h-16 items-center space-x-4 bg-white dark:bg-background-dark">
+                        <Link to={"/"}>
+                            <img src="/logo-icon-big.png" width="48" height="48" alt="Logo icon"/>
                         </Link>
-                        <Link to="boats" className="text-white ">
-                            <Text className={"text-xl font-bold"}> Boats</Text>
+
+                        <div className="flex flex-row items-center w-50 max-w-xs h-12">
+                            <input
+                                type="search"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                placeholder="Search..."
+                                className="px-4 py-2 border border-gray-200 dark:border-none rounded-l-md w-full bg-white"
+                            />
+
+                            <button
+                                onClick={handleSearch}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600"
+                            >
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <nav className="flex flex-row items-center w-full justify-around bg-accent
+                 py-2 h-8 w-full ">
+                        <Link to="/supplies" className="text-white ">
+                            <Text className={"text-md font-bold"} color={"text-white "}>Store</Text>
                         </Link>
-                        <Link to="partners" className="text-white ">
-                            <Text className={"text-xl font-bold"}>Partners</Text>
+                        <Link to="/boats" className="text-white ">
+                            <Text className={"text-md font-bold"} color={"text-white "}> Boats</Text>
+                        </Link>
+                        <Link to="/partners" className="text-white ">
+                            <Text className={"text-md font-bold"} color={"text-white "}>Partners</Text>
                         </Link>
                     </nav>
-                </div>
-            </section>
-
+                </>
+            }
         </header>
     </>)
 }
