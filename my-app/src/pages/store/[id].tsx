@@ -1,4 +1,4 @@
-import Text from "@components/UI/Text.tsx";
+import Text from "@components/UI/styled/Text.tsx";
 
 export default function ProductPage() {
     return <Text>Work In Progress</Text>

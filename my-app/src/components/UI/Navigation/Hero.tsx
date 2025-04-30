@@ -1,4 +1,4 @@
-import Text from "@components/UI/Text.tsx";
+import Text from "@components/UI/styled/Text.tsx";
 import {Link} from "react-router";
 
 export default function Hero() {

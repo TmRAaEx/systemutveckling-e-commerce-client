@@ -45,7 +45,7 @@ export default function useProducts() {
             });
 
         } catch (error) {
-            setError(ErrorHandler(error))
+            setError("Error fetching products");
         } finally {
             setLoading(false)
         }
@@ -54,9 +54,20 @@ export default function useProducts() {
 
     const getBySearch = async (search: string) => {
         setLoading(true)
-        //TODO develop on backend and implement
+        try {
+            const searchResults = await apiClient.get<IProduct[]>(`/products/${search}`, {
+                params: {
+                    search: search,
+                }
+            })
+            setProducts(searchResults)
+        } catch (error) {
+            setError("Error fetching search results")
+        } finally {
+            setLoading(false)
+        }
     }
 
 
-    return {products, loading, error, getById}
+    return {products, loading, error, getById, getBySearch}
 }

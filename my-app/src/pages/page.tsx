@@ -1,4 +1,4 @@
-import Text from "@components/UI/Text.tsx";
+import Text from "@components/UI/styled/Text.tsx";
 import MetaTags from "@components/MetaTags.tsx";
 
 export default function Home() {

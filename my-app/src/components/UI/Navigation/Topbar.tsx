@@ -1,6 +1,6 @@
-import Hero from "@components/UI/Hero.tsx";
+import Hero from "@components/UI/Navigation/Hero.tsx";
 import {Link, useLocation} from "react-router";
-import Text from "@components/UI/Text.tsx";
+import Text from "@components/UI/styled/Text.tsx";
 import {useState} from "react";
 
 export default function Topbar() {
@@ -41,7 +41,7 @@ export default function Topbar() {
 
                     <nav className="flex flex-row items-center w-full justify-around bg-accent
                  py-2 h-8 w-full ">
-                        <Link to="/supplies" className="text-white ">
+                        <Link to="/store" className="text-white ">
                             <Text className={"text-md font-bold"} color={"text-white "}>Store</Text>
                         </Link>
                         <Link to="/boats" className="text-white ">

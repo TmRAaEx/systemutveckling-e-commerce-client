@@ -1,5 +1,5 @@
 import {Outlet} from "react-router";
-import Topbar from "@components/UI/Topbar.tsx";
+import Topbar from "@components/UI/Navigation/Topbar.tsx";
 
 export default function RootLayout() {
     return (

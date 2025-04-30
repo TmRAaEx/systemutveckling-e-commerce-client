@@ -1,7 +1,7 @@
-import {AddToCartButton} from "@components/UI/Buttons.tsx";
+import {AddToCartButton} from "@components/UI/styled/Buttons.tsx";
 import {Link} from "react-router";
 import IProduct from "@interfaces/IProduct.ts";
-import Text from "@components/UI/Text.tsx";
+import Text from "@components/UI/styled/Text.tsx";
 
 export default function ProductCard({product}: { product: IProduct }) {
     {/*Modified version of https://componentland.com/component/product-card-2*/

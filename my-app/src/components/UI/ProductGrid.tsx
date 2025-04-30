@@ -8,17 +8,20 @@ export default function ProductGrid() {
 
     return (
 
-        <ul className={"grid grid-cols-2 gap-4 px-2"}>
-            {loading ? loadingArr.map((_, index) => (
-                    <li key={index}>
-                        <ProductCardSkeleton/>
-                    </li>
-                ))
-                : products.map(product => (
-                    <li key={product._id}>
-                        <ProductCard product={product}/>
-                    </li>
-                ))}
-        </ul>
+        <>
+            {error && <>{error}</>}
+            <ul className={"grid grid-cols-2 gap-4 px-2"}>
+                {loading ? loadingArr.map((_, index) => (
+                        <li key={index}>
+                            <ProductCardSkeleton/>
+                        </li>
+                    ))
+                    : products.map(product => (
+                        <li key={product._id}>
+                            <ProductCard product={product}/>
+                        </li>
+                    ))}
+            </ul>
+        </>
     )
 }
