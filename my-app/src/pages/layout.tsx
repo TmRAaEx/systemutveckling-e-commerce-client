@@ -5,7 +5,7 @@ export default function RootLayout() {
     return (
         <>
             <Topbar/>
-            <main className="bg-background dark:bg-background-dark flex flex-col px-2 py-20 min-h-[100vh]">
+            <main className="bg-background dark:bg-background-dark flex flex-col px-2 py-5 ">
                 <Outlet/>
             </main>
             <footer>

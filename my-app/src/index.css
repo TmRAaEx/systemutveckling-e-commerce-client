@@ -2,16 +2,22 @@
 
 @theme{
     --color-background-dark: #070113;
-    --color-background: #fefefe;
+    --color-background: #E7E7E7;
     --color-accent: #6CB0BA;
 }
 
 body {
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background);
 }
 
 * {
     box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+    background-color: var(--color-background-dark);
+}
 }
 
 
