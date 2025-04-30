@@ -34,15 +34,16 @@ export default function useProducts() {
         }
     }
 
-
     const getById = async (id: IProduct["_id"]) => {
-        setLoading(true)
         try {
-            const product = await apiClient.get<IProduct>(`/products/${id}`)
-            setProducts(prev => {
-                const exists = prev.some(p => p._id === product._id);
-                return exists ? prev : [...prev, product];
-            });
+            const productExist = products.find(i => i._id === id)
+            if (productExist) return productExist
+            setLoading(true)
+            const product = await apiClient.get(`/products/${id}`);
+            if (!product) {
+                return Promise.reject(new Error("Product not found"));
+            }
+            return product
 
         } catch (error) {
             setError("Error fetching products");
@@ -50,7 +51,6 @@ export default function useProducts() {
             setLoading(false)
         }
     }
-
 
     const getBySearch = async (search: string) => {
         setLoading(true)
@@ -67,7 +67,6 @@ export default function useProducts() {
             setLoading(false)
         }
     }
-
 
     return {products, loading, error, getById, getBySearch}
 }
