@@ -28,17 +28,17 @@ export default function ProductCard({product}: { product: IProduct }) {
                     </span>
                     <div className="flex flex-col h-full justify-around mt-4 px-1 pb-2">
                         <Text
-                            className="text-lg tracking-tight line-clamp-1"
+                            className="text-xl tracking-tight line-clamp-1 font-bold"
                             color={"text-slate-900 dark:text-white"}>  {product.name}</Text>
-                        <Text className={"text-sm px-1"}
+                        <Text className={"text-sm px-1 font-semibold"}
                               color={"text-gray-600 dark:text-gray-200"}>{product.category.name}</Text>
-                        <Text className={"text-lg text-bold"}
+                        <Text className={"text-lg font-bold"}
                               color={"text-black dark:text-white"}>{Price(product)}</Text>
 
                     </div>
                 </div>
             </Link>
-            <AddToCartButton/>
+            <AddToCartButton product={product}/>
         </div>
     )
 }

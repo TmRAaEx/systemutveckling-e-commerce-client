@@ -11,7 +11,6 @@ export default function useProducts() {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        if (products.length > 0) return;
         getAll().then()
     }, [])
 
@@ -68,5 +67,17 @@ export default function useProducts() {
         }
     }
 
-    return {products, loading, error, getById, getBySearch}
+    const getByCategory = async (categoryId: string) => {
+        setLoading(true)
+        try {
+            const products = await apiClient.get<IProduct[]>(`/products/category/${categoryId}`);
+            setProducts(products)
+        } catch (error) {
+            setError("Error fetching search results")
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    return {products, loading, error, getById, getBySearch, getByCategory}
 }
