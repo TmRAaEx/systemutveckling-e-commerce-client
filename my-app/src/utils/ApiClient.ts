@@ -70,4 +70,6 @@ export class Request {
 }
 
 const apiClient = new Request("/api/");
+export const paymentClient = new Request("/stripe/")
 export default apiClient;
+

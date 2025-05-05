@@ -29,7 +29,7 @@ export default function Topbar() {
                             <img src="/logo-icon-big.png" width="48" height="48" alt="Logo icon"/>
                         </Link>
 
-                        <div className="flex flex-row items-center w-full max-w-2xl h-12">
+                        <div className="flex flex-row items-center w-[50%] h-12">
                             <input
                                 type="search"
                                 value={search}
