@@ -2,11 +2,11 @@ import {useEffect, useState} from "react";
 import apiClient from "../utils/ApiClient.ts";
 import IProduct from "@interfaces/IProduct.ts";
 import ErrorHandler from "../utils/ErrorHandling.ts";
-import {LocalStorage} from "@services/localstorage.ts";
+// import {LocalStorage} from "@services/localstorage.ts";
 
 export default function useProducts() {
-    const storage = new LocalStorage("products");
-    const [products, setProducts] = useState<IProduct[]>(storage.getItem<IProduct[]>() || [])
+    // const storage = new LocalStorage("products");
+    const [products, setProducts] = useState<IProduct[]>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
 
@@ -14,9 +14,9 @@ export default function useProducts() {
         getAll().then()
     }, [])
 
-    useEffect(() => {
-        storage.setItem(products)
-    }, [products]);
+    // useEffect(() => {
+    //     storage.setItem(products)
+    // }, [products]);
 
 
     const getAll = async () => {

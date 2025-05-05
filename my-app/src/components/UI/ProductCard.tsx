@@ -7,7 +7,6 @@ import Price from "@components/UI/functional/PriceFormatter.tsx";
 export default function ProductCard({product}: { product: IProduct }) {
     {/*Modified version of https://componentland.com/component/product-card-2*/
     }
-    console.log(product);
     return (
         <div
             className="relative flex w-full p-2 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white dark:bg-black dark:border-gray-700 shadow-md ">

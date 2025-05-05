@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
 import ICategory from "@interfaces/ICategory.ts";
-import {LocalStorage} from "@services/localstorage.ts";
+// import {LocalStorage} from "@services/localstorage.ts";
 import apiClient from "../utils/ApiClient.ts";
 import ErrorHandler from "../utils/ErrorHandling.ts";
 
 export default function useCategories() {
-    const storage = new LocalStorage("categories");
-    const [categories, setCategories] = useState<ICategory[]>(storage.getItem<ICategory[]>() || [])
+    // const storage = new LocalStorage("categories");
+    const [categories, setCategories] = useState<ICategory[]>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
 
@@ -16,9 +16,9 @@ export default function useCategories() {
         getAll().then()
     }, [])
 
-    useEffect(() => {
-        storage.setItem(categories)
-    }, [categories]);
+    // useEffect(() => {
+    //     storage.setItem(categories)
+    // }, [categories]);
 
     const getAll = async () => {
         setLoading(true)

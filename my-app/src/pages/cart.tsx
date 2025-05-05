@@ -19,9 +19,12 @@ export default function CartPage() {
             setIsLoggedIn(false)
             return
         }
-
         setIsLoggedIn(true);
     }, []);
+
+    if (cartItems.length === 0) {
+        return <Text>Your cart is empty</Text>;
+    }
 
     return (
         <>
@@ -40,7 +43,7 @@ export default function CartPage() {
                         <>
                             <button
                                 className="w-full sm:w-auto px-6 py-3 bg-gray-800 text-white rounded-xl hover:bg-gray-700 transition">
-                                <Link to={"/checkout"}>
+                                <Link to={"/shipping"}>
                                     <Text className="text-white font-medium">Continue as Guest</Text>
                                 </Link>
                             </button>
@@ -53,7 +56,7 @@ export default function CartPage() {
                     ) :
                     <button
                         className="w-full sm:w-auto px-6 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-100 transition">
-                        <Link to={"/checkout"}><Text className="font-medium" color="text-gray-800">Continue to
+                        <Link to={"/shipping"}><Text className="font-medium" color="text-gray-800">Continue to
                             checkout</Text></Link>
                     </button>
                 }
