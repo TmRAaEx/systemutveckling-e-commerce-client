@@ -1,5 +1,8 @@
-import {ReactNode, ButtonHTMLAttributes, FormEvent} from "react";
+import {ReactNode, ButtonHTMLAttributes, FormEvent, useState, useContext} from "react";
 import CartIcon from "@components/UI/CartIcon.tsx";
+import {Link} from "react-router";
+import {CartContext} from "@context/CartContext.ts";
+import IProduct from "@interfaces/IProduct.ts";
 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -55,16 +58,60 @@ export function SubmitButton({
     );
 }
 
-export function AddToCartButton() {
+export function AddToCartButton({product}: { product: IProduct }) {
+    const {addToCart} = useContext(CartContext);
+    const [isIncart, setIsIncart] = useState(false);
+
+    const handleAddToCart = () => {
+        setIsIncart(true);
+        addToCart({
+            product: {id: product._id, price: product.price},
+            quantity: 1,
+        });
+    };
+
+    if (isIncart) {
+        return (
+            <>
+                <Link to={"/cart"}>
+                    <button
+                        className="flex items-center w-full justify-center rounded-md
+                           bg-green-600 px-5 py-2.5 text-center text-sm font-medium text-white
+                           hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    >
+                        Go to Cart
+                        <CartIcon/>
+                    </button>
+                </Link>
+            </>
+        );
+    }
+
     return (
-        <button
-            className="flex items-center w-full justify-center rounded-md
-                       bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white
-                       hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-300"
-        >
-            <CartIcon/>
-            Add to cart
-        </button>
+        <>
+            {/*{product.stock >= 1 ? (*/}
+                <>
+                    <button
+                        onClick={handleAddToCart}
+                        className="flex items-center w-full justify-center rounded-md
+                               bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white
+                               hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                    >
+                        <CartIcon/>
+                        Add to cart
+                    </button>
+                </>
+          {/*  ) : (*/}
+            {/*      <button*/}
+            {/*          className="flex items-center w-full justify-center rounded-md*/}
+            {/*                 bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white"*/}
+            {/*      >*/}
+            {/*<span className="h-6 flex align-center justify-center">*/}
+            {/*  <p className="h-fit">Out of stock</p>*/}
+            {/*</span>*/}
+            {/*      </button>*/}
+            {/*  )}*/}
+        </>
     );
 }
 
