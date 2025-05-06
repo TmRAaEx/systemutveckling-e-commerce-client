@@ -14,13 +14,11 @@ export default function ProductPage() {
     const {error, loading, getById} = useProducts();
 
     useEffect(() => {
-        // Make sure the API call is made once productId is available
         if (productId) {
             getById(productId).then((product) => setProductData(product));
         }
     }, [productId]);
 
-    // Show skeleton loader if still loading and no product data
     if (loading || !productData) {
         return <ProductPageSkeleton/>;
     }

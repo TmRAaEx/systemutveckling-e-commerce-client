@@ -16,7 +16,7 @@ export default function CartPage() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [user, setUser] = useState<string | null>(null)
     useEffect(() => {
-        const userId = Cookies.get("user_id"); // or whatever key you used
+        const userId = Cookies.get("user_id");
         if (!userId || userId === "undefined") {
             setIsLoggedIn(false)
             return
@@ -61,7 +61,7 @@ export default function CartPage() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 {!isLoggedIn ? (
-                        <>
+                        <>s
                             <button
                                 className="w-full sm:w-auto px-6 py-3 bg-gray-800 text-white rounded-xl hover:bg-gray-700 transition">
                                 <Link to={"/shipping"}>
