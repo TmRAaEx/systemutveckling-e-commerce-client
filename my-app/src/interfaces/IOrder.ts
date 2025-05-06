@@ -6,8 +6,10 @@ export interface IOrder {
     customerDetails: ICustomerDetails;
     payment_ref?: string;
     lineItems: {
-        product: {
-            id: string;
+        productId: string;
+        product?: {
+            _id?: string;
+            id?: string;
             name?: string;
             price?: number;
         };
