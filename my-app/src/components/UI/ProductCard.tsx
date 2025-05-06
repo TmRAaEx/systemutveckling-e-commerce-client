@@ -10,12 +10,7 @@ export default function ProductCard({product}: { product: IProduct }) {
     return (
         <div
             className="relative flex w-full p-2 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white dark:bg-black dark:border-gray-700 shadow-md ">
-            {/*    {Number(discount) > 0 && (*/}
-            {/*        <span*/}
-            {/*            className="absolute top-2 left-2 bg-red-500 text-white text-md font-bold px-2 py-1 rounded-full z-999">*/}
-            {/*    -{discount}%*/}
-            {/*</span>*/}
-            {/*    )}*/}
+
             <Link to={`/store/${product._id}`}>
                 <div className={"flex w-full h-56 justify-around flex-col"}>
                     <span
