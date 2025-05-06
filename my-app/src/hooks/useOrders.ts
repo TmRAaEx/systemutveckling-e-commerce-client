@@ -44,6 +44,29 @@ export default function useOrders() {
         }
     };
 
+
+    const getByPaymentId = async (id: string) => {
+        setLoading(true);
+        try {
+            const order = await apiClient.get<IOrder>(`/orders/paymentId/${id}`);
+            const items = await Promise.all(
+                order.lineItems.map(async (item) => {
+                    try {
+                        const product = await getProductData(item.productId);
+                        return {...item, product};
+                    } catch {
+                        return item;
+                    }
+                })
+            );
+            return {...order, lineItems: items};
+        } catch (error) {
+            setError(ErrorHandler(error));
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const createOrder = async (data: IOrder) => {
         setLoading(true);
         try {
@@ -57,5 +80,5 @@ export default function useOrders() {
         }
     };
 
-    return {orders, loading, error, createOrder};
+    return {orders, loading, error, createOrder, getByPaymentId};
 }
