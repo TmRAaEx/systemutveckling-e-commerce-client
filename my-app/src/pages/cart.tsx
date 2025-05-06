@@ -7,12 +7,13 @@ import CartItem from "@components/UI/CartItem.tsx";
 import Text from "@components/UI/styled/Text.tsx";
 import LoginModal from "@components/UI/functional/SiginIn.tsx";
 import {Link} from "react-router"
+import apiClient from "../utils/ApiClient.ts";
 
 export default function CartPage() {
     const {cartItems, getCartTotal} = useContext(CartContext);
     const [showLogin, setShowLogin] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
+    const [user, setUser] = useState<string | null>(null)
     useEffect(() => {
         const userId = Cookies.get("user_id"); // or whatever key you used
         if (!userId || userId === "undefined") {
@@ -20,11 +21,25 @@ export default function CartPage() {
             return
         }
         setIsLoggedIn(true);
+        setUser(userId);
     }, []);
+
+
+    const saveCart = async () => {
+        const cart = await apiClient.post("/carts/create",
+            {
+                lineItems: cartItems,
+                userId: user
+            })
+
+        console.log(cart)
+
+    }
 
     if (cartItems.length === 0) {
         return <Text>Your cart is empty</Text>;
     }
+
 
     return (
         <>
@@ -55,6 +70,7 @@ export default function CartPage() {
                         </>
                     ) :
                     <button
+                        onClick={saveCart}
                         className="w-full sm:w-auto px-6 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-100 transition">
                         <Link to={"/shipping"}><Text className="font-medium" color="text-gray-800">Continue to
                             checkout</Text></Link>

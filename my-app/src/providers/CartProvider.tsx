@@ -17,20 +17,24 @@ export const CartProvider = ({children}: { children: ReactNode }) => {
     const addToCart = (item: ICartItem) => {
         const isItemInCart = cartItems.find((cartItem) => cartItem.product.id === item.product.id);
         if (isItemInCart) {
+            console.log(isItemInCart);
+            console.log(item)
             setCartItems(
                 cartItems.map((cartItem) =>
                     cartItem.product.id === item.product.id
                         ? {
                             ...cartItem,
-                            quantity: item.quantity ? item.quantity : (cartItem.quantity ? cartItem.quantity : 1) + 1
+                        //todo add logic for changing amount
+                            quantity: item.quantity ? item.quantity + 1 : 1,
                         }
                         : cartItem
                 )
             );
         } else {
-            setCartItems([...cartItems, {...item, quantity: 1}]);
+            setCartItems([...cartItems, {...item, quantity: item.quantity ?? 1}]);
         }
     };
+
 
     const removeFromCart = (item: ICartItem) => {
         const isItemInCart = cartItems.find((cartItem) => cartItem.product.id === item.product.id);
