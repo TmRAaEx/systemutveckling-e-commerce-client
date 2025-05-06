@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <url>
+        <loc>http://localhost:5173/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/cart</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/signup</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/boats</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/partners</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+<url>
+        <loc>http://localhost:5173/store/6811c295e77c6e9c33bb92c2</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store/6818c3b58a75c485e6af748e</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store/6818c4928a75c485e6af748f</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store/6818c591545bfc6ce6a073c0</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store/6819fb1b36851af6b63e68ea</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+<url>
+        <loc>http://localhost:5173/store/6819fc6c36851af6b63e68eb</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+
+</urlset>
