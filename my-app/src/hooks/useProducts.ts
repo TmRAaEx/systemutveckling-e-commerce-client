@@ -51,6 +51,36 @@ export default function useProducts() {
         }
     }
 
+
+    const update = async (data: IProduct) => {
+        setLoading(true)
+        try {
+            const updatedProduct = await apiClient.patch<IProduct>(`/products/update/${data._id}`, data);
+            setProducts((prev) =>
+                prev.map((prod) => (prod._id === updatedProduct._id ? updatedProduct : prod))
+            );
+        } catch
+            (error) {
+            setError("Error updating product");
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const create = async (data: IProduct) => {
+        setLoading(true)
+        try {
+            const insertedProd = await apiClient.post<IProduct>(`/products/create`, data);
+            console.log(insertedProd)
+            setProducts([...products, insertedProd]);
+        } catch
+            (error) {
+            setError("Error updating product");
+        } finally {
+            setLoading(false)
+        }
+    }
+
     const getBySearch = async (search: string) => {
         setLoading(true)
         try {
@@ -79,5 +109,5 @@ export default function useProducts() {
         }
     }
 
-    return {products, loading, error, getById, getBySearch, getByCategory}
+    return {products, loading, error, getById, getBySearch, getByCategory, update, create}
 }

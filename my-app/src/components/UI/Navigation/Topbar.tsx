@@ -13,7 +13,34 @@ export default function Topbar() {
 
     return (<>
         <header className={"flex flex-col w-full items-center"}>
-            {location.pathname == "/" ? <Hero/> :
+            {location.pathname == "/" ? <Hero/> : location.pathname.includes("/admin") ?
+                <>
+                    <div
+                        className="flex flex-row w-full h-16 md:h-20 items-center justify-between space-x-4 bg-white dark:bg-background-dark px-2 md:px-5">
+                        <Link to={"/admin"}>
+                            <img src="/logo-icon-big.png" width="48" height="48" alt="Logo icon"/>
+                        </Link>
+
+                    </div>
+
+
+                    <nav className="flex flex-row items-center w-full justify-around bg-accent
+                 py-2 h-8 md:h-10 w-full ">
+                        <NavLink to="orders" className="text-white ">
+                            <Text className={"text-md md:text-lg lg:text-xl  font-bold"}
+                                  color={"text-white "}>Orders</Text>
+                        </NavLink>
+                        <NavLink to="products" className="text-white ">
+                            <Text className={"text-md md:text-lg  lg:text-xl font-bold"}
+                                  color={"text-white "}> Products</Text>
+                        </NavLink>
+                        <NavLink to="/" className="text-white ">
+                            <Text className={"text-md md:text-lg  lg:text-xl font-bold"}
+                                  color={"text-white "}> Home</Text>
+                        </NavLink>
+                    </nav>
+                </>
+                :
                 <>
                     <div
                         className="flex flex-row w-full h-16 md:h-20 items-center justify-between space-x-4 bg-white dark:bg-background-dark px-2 md:px-5">

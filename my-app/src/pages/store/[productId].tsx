@@ -39,7 +39,7 @@ export default function ProductPage() {
                     <div className="flex flex-col gap-3 w-full">
                         <span className="flex flex-col items-start gap-3">
                             <Text className="text-xl font-bold">{Price(productData)}</Text>
-                            <AddToCartButton/>
+                            <AddToCartButton product={productData}/>
                         </span>
                         <Text className="font-bold text-lg">{productData?.category.name}</Text>
                         <Text className="font-semibold text-lg underline">Description</Text>

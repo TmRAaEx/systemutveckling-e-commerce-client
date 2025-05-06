@@ -10,6 +10,7 @@ import {useNavigate, useSearchParams} from "react-router";
 import apiClient, {paymentClient} from "../utils/ApiClient.ts";
 import {DangerButton} from "@components/UI/styled/Buttons.tsx";
 import IProduct from "@interfaces/IProduct.ts";
+import MetaTags from "@components/MetaTags.tsx";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
@@ -65,6 +66,8 @@ export default function CheckoutPage() {
 
     return (
         <div id="checkout">
+            <MetaTags
+                title={"Checkout"}/>
             <EmbeddedCheckoutProvider
                 stripe={stripePromise}
                 options={options}

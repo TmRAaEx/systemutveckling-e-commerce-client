@@ -8,6 +8,7 @@ import Text from "@components/UI/styled/Text.tsx";
 import LoginModal from "@components/UI/functional/SiginIn.tsx";
 import {Link} from "react-router"
 import apiClient from "../utils/ApiClient.ts";
+import MetaTags from "@components/MetaTags.tsx";
 
 export default function CartPage() {
     const {cartItems, getCartTotal} = useContext(CartContext);
@@ -37,12 +38,17 @@ export default function CartPage() {
     }
 
     if (cartItems.length === 0) {
-        return <Text>Your cart is empty</Text>;
+        return <><MetaTags
+            title={"Cart"}
+            description={"Your shopping cart"}/><Text>Your cart is empty</Text></>;
     }
 
 
     return (
         <>
+            <MetaTags
+                title={"Cart"}
+                description={"Your shopping cart"}/>
             <ul>
                 {cartItems.map((item: ICartItem) => (
                     <li key={item.product.id}>

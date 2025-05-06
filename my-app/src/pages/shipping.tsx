@@ -2,7 +2,6 @@ import {ChangeEvent, FormEvent, useContext, useState} from "react";
 import ICustomerDetails from "@interfaces/ICustomer.ts";
 import {SubmitButton} from "@components/UI/styled/Buttons.tsx";
 import useOrders from "@hooks/useOrders.ts";
-import {IOrder} from "@interfaces/IOrder.ts";
 import {CartContext} from "@context/CartContext.ts";
 import {useNavigate} from "react-router";
 
@@ -29,7 +28,7 @@ export default function ShippingInfoPage() {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
-        const data: IOrder = {
+        const data: any = {
             customerDetails: formData,
             lineItems: cartItems
         }
