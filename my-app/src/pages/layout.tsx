@@ -8,9 +8,7 @@ export default function RootLayout() {
             <main className="bg-background dark:bg-background-dark flex flex-col px-2 py-5 ">
                 <Outlet/>
             </main>
-            <footer>
-                footer
-            </footer>
+            
         </>
     )
 }
